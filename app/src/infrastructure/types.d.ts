@@ -1,4 +1,4 @@
-export type AsyncResult<TResponce, TError> = {
-  body: TResponce | TError;
+export interface AsyncResult<TError> {
+  errors: TError[];
   loading: boolean;
-};
+}
