@@ -1,4 +1,4 @@
-import { configureStore, Store } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
 import articles from "./articleSlice";
 import profile from "./profileSlice";
