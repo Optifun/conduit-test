@@ -1,18 +1,16 @@
-import React, { ReactNode } from "react";
-import { Link, Outlet } from "react-router-dom";
-import { useAppSelector } from "../hooks";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import './style.css'
+import { AppHeader } from "../components/AppHeader/AppHeader";
 
-interface LayoutProps {
-  children: ReactNode
-}
 
 export const MainLayout: React.FC = () => {
   return (
     <div>
-      <header>
-        <Link to="/">conduit</Link>
-      </header>
-      <Outlet/>
+      <AppHeader/>
+      <div className="container">
+        <Outlet/>
+      </div>
       <footer>Conduit App</footer>
     </div>
   );
