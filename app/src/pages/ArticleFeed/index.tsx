@@ -4,14 +4,12 @@ import { fetchArticles } from "../../store/articleSlice";
 import { ArticleList } from "./ArticleList";
 
 
-export const ArticleFeed: React.FC = () => {
+const ArticleFeed: React.FC = () => {
   const { list: articles, errors, loading } = useAppSelector(state => state.articles);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    (async () => {
-      dispatch(fetchArticles())
-    })()
+    (async () => dispatch(fetchArticles()))()
   }, [])
 
   return (
