@@ -15,9 +15,9 @@ export function errorMessage(error: FetchBaseQueryError | SerializedError | unde
   const serializedError = error as SerializedError;
 
   if (fetchError) {
-    return fetchError.data as any
+    return fetchError.status + " " + JSON.stringify(fetchError.data);
   }
   if (serializedError) {
-    return `${serializedError} | ${serializedError.message}\n ${serializedError.stack}`
+    return `${serializedError.name} | ${serializedError.message}\n ${serializedError.stack}`
   }
 }

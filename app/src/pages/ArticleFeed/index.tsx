@@ -15,13 +15,13 @@ const ArticleFeed: React.FC = () => {
     offset: 10 * currentPage
   });
 
-  const articles = articleResponse == undefined ? [] : articleResponse.articles;
+  const articles = articleResponse === undefined ? [] : articleResponse.articles;
 
   return (
     <div>
       <div>
         {isLoading && <h2>Loading...</h2>}
-        {!isLoading && articles.length == 0 && <h2>There is no articles found</h2>}
+        {!isLoading && articles.length === 0 && <h2>There is no articles found</h2>}
         {!isLoading && articles.length && <ArticleList items={articles}/>}
         <div>
           {isError && errorMessage(error)}

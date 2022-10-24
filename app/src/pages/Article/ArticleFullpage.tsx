@@ -1,18 +1,31 @@
-import React from 'react';
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { useParams } from "react-router-dom";
+import React, { FC } from 'react';
+import { useAppDispatch } from "../../hooks";
+import { useNavigate, useParams } from "react-router-dom";
+import { useFetchArticleBySlugQuery } from "../../services/articleService";
 import { ArticleContent } from "../../components/Article/ArticleContent";
+import { errorMessage } from "../../helpers/utils";
 
 
-const ArticleFullpage: React.FC = () => {
-  const { list: articles, errors, loading } = useAppSelector(state => state.articles);
-  const { slug } = useParams();
+const ArticleFullpage: FC = () => {
   const dispatch = useAppDispatch();
+  const { slug } = useParams();
+  const navigate = useNavigate();
+
+  if (slug === undefined) {
+    navigate("/not_found");
+  }
+
+  const { data, isLoading, isError, error, isSuccess } =
+    useFetchArticleBySlugQuery(slug ?? "", { skip: slug === undefined });
 
   return (
-    <div>
-      <ArticleContent article={articles[0]}/>
-    </div>
+    <>
+      {isLoading && "Loading..."}
+      {isSuccess && !isError && data !== undefined && <ArticleContent article={data}/>}
+      <div>
+        {isError && errorMessage(error)}
+      </div>
+    </>
   );
 }
 
