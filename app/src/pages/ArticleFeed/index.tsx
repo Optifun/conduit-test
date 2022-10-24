@@ -1,27 +1,32 @@
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { fetchArticles } from "../../store/articleSlice";
+import React, { useState } from 'react';
+import { useAppDispatch } from "../../hooks";
 import { ArticleList } from "./ArticleList";
+import { useFetchArticlesQuery } from "../../services/articleService";
+import { errorMessage } from "../../helpers/utils";
+
 
 
 const ArticleFeed: React.FC = () => {
-  const { list: articles, errors, loading } = useAppSelector(state => state.articles);
   const dispatch = useAppDispatch();
+  const [ currentPage, setPage ] = useState(0);
 
-  useEffect(() => {
-    (async () => dispatch(fetchArticles()))()
-  }, [])
+  const { data: articleResponse, isLoading, isError, error } = useFetchArticlesQuery({
+    limit: 10,
+    offset: 10 * currentPage
+  });
+
+  const articles = articleResponse == undefined ? [] : articleResponse.articles;
 
   return (
     <div>
-      <body>
-      {loading && <h2>Loading...</h2>}
-      {!loading && articles.length == 0 && <h2>There is no articles found</h2>}
-      {!loading && articles.length && <ArticleList items={articles}/>}
       <div>
-        {errors.map(e => <span>{e}</span>)}
+        {isLoading && <h2>Loading...</h2>}
+        {!isLoading && articles.length == 0 && <h2>There is no articles found</h2>}
+        {!isLoading && articles.length && <ArticleList items={articles}/>}
+        <div>
+          {isError && errorMessage(error)}
+        </div>
       </div>
-      </body>
 
     </div>
   );
