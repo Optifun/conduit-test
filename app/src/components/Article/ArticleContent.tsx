@@ -1,7 +1,7 @@
 import React from "react";
 import { Article } from "../../model/Article";
 import { Link } from "react-router-dom";
-import { Tag } from "../Tag";
+import { Tag } from "../Tags/Tag";
 import { User } from "../../model/User";
 
 interface ArticleContentProps {

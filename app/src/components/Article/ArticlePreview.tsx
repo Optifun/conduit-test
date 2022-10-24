@@ -1,7 +1,7 @@
 import React from "react";
-import { Article } from "../../model/Article";
 import { Link } from "react-router-dom";
-import { Tag } from "../Tag";
+import { Article } from "../../model/Article";
+import { TagsList } from "../Tags/TagsList";
 
 interface ArticlePreviewProps {
   article: Article;
@@ -18,6 +18,6 @@ export const ArticlePreview: React.FC<ArticlePreviewProps> = ({ article }) => (
     <div>{article.description}</div>
     <div>
       <div>Read more...</div>
-      <div>{article.tagList.map(t => (<Tag active={false} text={t}/>))}</div>
+      <TagsList tags={article.tagList}/>
     </div>
   </div>);
