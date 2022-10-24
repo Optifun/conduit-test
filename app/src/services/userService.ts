@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { apiURL } from "../constants";
 
 
 export const userService = createApi({
   reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://api.realworld.io/api/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: apiURL }),
   endpoints: build => ({
     currentUser: build.query<AuthenticationResponse, void>({
       query() {
