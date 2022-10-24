@@ -1,0 +1,19 @@
+.article.preview {
+    margin: 14px 0;
+    padding: 8px;
+    border: rgba(0, 0, 0, 0.15) solid 2px;
+    border-radius: 12px;
+}
+
+.content {
+    padding: 10px 0;
+}
+
+.description {
+    margin: 10px 0;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}

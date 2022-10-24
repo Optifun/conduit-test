@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from "../../hooks";
-import { ArticleList } from "./ArticleList";
+import { ArticleList } from "../../components/Article/ArticleList";
 import { useFetchArticlesQuery } from "../../services/articleService";
 import { errorMessage } from "../../helpers/utils";
 
 
 
-const ArticleFeed: React.FC = () => {
+export const ArticleFeed: React.FC = () => {
   const dispatch = useAppDispatch();
   const [ currentPage, setPage ] = useState(0);
 
@@ -31,5 +31,3 @@ const ArticleFeed: React.FC = () => {
     </div>
   );
 }
-
-export default ArticleFeed;

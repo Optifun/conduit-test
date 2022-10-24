@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import ArticleFeed from "../pages/ArticleFeed";
+import { ArticleFeed } from "../pages/ArticleFeed/ArticleFeed";
 import { MainLayout } from "../layout/MainLayout";
 import ArticleFullpage from "../pages/Article/ArticleFullpage";
 

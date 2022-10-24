@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import './style.css'
 import { AppHeader } from "../components/AppHeader/AppHeader";
+import './mainLayout.css'
 
 
 export const MainLayout: React.FC = () => {
