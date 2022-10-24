@@ -1,13 +1,13 @@
-export interface User {
+export type User = {
   username: string;
   bio: string | null;
   image: string;
 }
 
-export interface AuthData extends User {
+export type AuthData = User & {
   token: string;
 }
 
-export interface ArticleAuthor extends User {
+export type ArticleAuthor = User & {
   following: boolean;
 }

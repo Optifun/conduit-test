@@ -1,4 +1,5 @@
 import { ArticleAuthor } from "./User";
+
 export type Tag = string;
 
 export type Article = {

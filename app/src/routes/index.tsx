@@ -13,6 +13,7 @@ const RoutesRoot: React.FC = () => {
         <Route path="/article/:slug" element={<ArticleFullpage/>}/>
       </Route>
 
+      <Route path="/not_found" caseSensitive={true} element={<h2>Not found</h2>}/>
       <Route path="*" element={<h2>Not found</h2>}/>
     </Routes>
   );

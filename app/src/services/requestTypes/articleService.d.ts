@@ -9,3 +9,6 @@ type ArticlesResponse = {
   articles: Article[],
   articlesCount: number
 }
+export type SingleArticleResponse = {
+  article: Article
+}
