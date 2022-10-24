@@ -1,0 +1,16 @@
+.tag {
+    border: rgba(0, 0, 0, 0.2) solid 1px;
+    border-radius: 14px;
+    padding: 1px 6px;
+    box-sizing: content-box;
+}
+
+.tag.active {
+    background: #464646;
+    color: white;
+}
+
+.tag-list > * {
+    margin-right: 4px;
+
+}
