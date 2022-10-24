@@ -1,23 +1,31 @@
-import { createSlice, Slice } from "@reduxjs/toolkit";
-import { Article, Tag } from "../model/Article";
-import { User } from "../model/User";
+import { createSlice, PayloadAction, Slice } from "@reduxjs/toolkit";
+import { Article } from "../model/Article";
+import { ArticleAuthor } from "../model/User";
 
-type UserState = {
-  list: Article[];
-  filter: null | User | Tag;
-  loading: boolean;
+type UserProfile = {
+  articles: Article[];
+  user: ArticleAuthor | null
 };
 
-const initialState: UserState = {
-  filter: null,
-  list: [],
-  loading: false,
+const initialState: UserProfile = {
+  articles: [],
+  user: null
 };
 
-const ProfileState: Slice<UserState> = createSlice({
-  name: "articles",
+const ProfileState: Slice<UserProfile> = createSlice({
+  name: "userProfile",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    setAuthor(state, action: PayloadAction<ArticleAuthor>) {
+      state.user = action.payload;
+    },
+    setArticles(state, action: PayloadAction<Article[]>) {
+      state.articles = action.payload;
+    },
+    addArticles(state, action: PayloadAction<Article[]>) {
+      state.articles.push(...action.payload);
+    }
+  },
 });
 
 export default ProfileState.reducer;

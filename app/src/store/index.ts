@@ -1,15 +1,25 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import articles from "./articleSlice";
+import articleFeed from "./feedSlice";
 import profile from "./profileSlice";
 import tags from "./tagsSlice";
+import appState from "./appStateSlice";
+import { articleService } from '../services/articleService'
 import { userService } from "../services/userService";
 
 const store = configureStore({
-  reducer: { articles, profile, tags,
+  reducer: {
+    articleFeed, profile, tags, appState,
     [userService.reducerPath]: userService.reducer,
+    [articleService.reducerPath]: articleService.reducer
   },
-  middleware: getDefaultMiddleware => {return getDefaultMiddleware().concat(userService.middleware)},
+  middleware: getDefaultMiddleware => {
+    return getDefaultMiddleware()
+      .concat([
+        userService.middleware,
+        articleService.middleware
+      ])
+  },
   devTools: true,
 });
 
