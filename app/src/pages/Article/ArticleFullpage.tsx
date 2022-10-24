@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useAppDispatch } from "../../hooks";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFetchArticleBySlugQuery } from "../../services/articleService";
-import { ArticleContent } from "../../components/Article/ArticleContent";
+import { ArticleContent } from "../../components/Article/ArticleContent/ArticleContent";
 import { errorMessage } from "../../helpers/utils";
 
 

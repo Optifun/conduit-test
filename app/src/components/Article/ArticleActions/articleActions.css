@@ -1,0 +1,28 @@
+.article-actions {
+    display: inline-flex;
+    align-items: center;
+}
+
+.article-actions > * {
+    margin: 0 4px;
+}
+.article-actions > .username-avatar{
+    margin: 0;
+}
+
+.username-avatar {
+    display: flex;
+    border-radius: 100%;
+    overflow: hidden;
+    object-fit: scale-down;
+    height: 32px;
+    width: 32px;
+}
+
+.favourite-button {
+    padding: 4px 12px;
+}
+
+.follow-button {
+    padding: 4px 12px;
+}
